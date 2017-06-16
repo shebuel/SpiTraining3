@@ -1,0 +1,1 @@
+include ':app', ':jwplayer-core-2.7.3+19', ':jwplayer-common-2.7.3+19'

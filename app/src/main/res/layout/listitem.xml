@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemName" android:layout_width="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="wrap_content" android:text="Test view" android:background="@drawable/list_item_shape"
+    android:gravity="center_vertical|center_horizontal"
+    android:textColor="#EEEEEE"
+    android:textSize="24sp"
+    />

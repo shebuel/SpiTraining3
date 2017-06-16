@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "321058826198",
+    "firebase_url": "https://spionboarding-f5f43.firebaseio.com",
+    "project_id": "spionboarding-f5f43",
+    "storage_bucket": "spionboarding-f5f43.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321058826198:android:cb95409100476209",
+        "android_client_info": {
+          "package_name": "com.retreat.shebuel.spitraining"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321058826198-c37fb3dd762c02g3p310m24m82odire4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.retreat.shebuel.spitraining",
+            "certificate_hash": "8205aa0ca40b51dc6a6c9470d3747f7fbeba691c"
+          }
+        },
+        {
+          "client_id": "321058826198-e6i08vadi5hmsrr1a8qplk4ohr02lrdd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY6LEdA2B2lOJLCk3Gk9XJ_De9mwlYFlc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321058826198-e6i08vadi5hmsrr1a8qplk4ohr02lrdd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
