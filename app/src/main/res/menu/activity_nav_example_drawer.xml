@@ -14,7 +14,7 @@
         <item
             android:id="@+id/settings"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Logout" />
+            android:title="@string/logout" />
 
     </group>
 

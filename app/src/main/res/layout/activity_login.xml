@@ -54,7 +54,7 @@
                 android:ems="10"
                 android:background="@drawable/my_image3"
                 android:textAlignment="center"
-                android:hint="EMPLOYEE CODE"
+                android:hint="@string/employee_code_hint"
                 android:id="@+id/editText"
                 android:text="LMFIN00001"
                 android:layout_centerVertical="true"
@@ -68,8 +68,7 @@
                 android:background="@drawable/my_image3"
                 android:textAlignment="center"
                 android:id="@+id/editText2"
-                android:text="password"
-                android:hint="PASSWORD"
+                android:hint="@string/password_hint"
                 android:layout_below="@+id/editText"
                 android:layout_alignStart="@+id/editText" />
 
@@ -77,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_bg"
-                android:text="Login"
+                android:text="@string/login"
                 android:textColor="@color/half_white"
                 android:id="@+id/button"
                 android:layout_below="@+id/editText2"
@@ -86,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Forgot Password?"
+                android:text="@string/forgot_password"
                 android:textColor="@color/yellow"
                 android:clickable="true"
                 android:id="@+id/textView"

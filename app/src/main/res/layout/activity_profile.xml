@@ -70,10 +70,10 @@
                     android:textColor="#FFFF00"
                     android:textSize="20sp"
                     android:id="@+id/textView"
-                    android:text="NAME:" />
+                    android:text="@string/name_profile" />
 
                 <TextView
-                    android:text="IRON MAN"
+                    android:text=""
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#FFFF00"
@@ -87,7 +87,7 @@
                 android:orientation="horizontal"
                 android:paddingBottom="20sp">
                 <TextView
-                    android:text="DOJ:"
+                    android:text="@string/doj_profile"
                     android:textColor="#FFFF00"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                 android:orientation="horizontal"
                 android:paddingBottom="20sp">
                 <TextView
-                    android:text="DEPARTMENT:"
+                    android:text="@string/department_profile"
                     android:textSize="20dp"
                     android:textColor="#FFFF00"
                     android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                     android:id="@+id/textView7" />
 
                 <TextView
-                    android:text="BILLIONAIRE"
+                    android:text=""
                     android:textSize="20sp"
                     android:textColor="#FFFF00"
                     android:layout_width="wrap_content"
@@ -134,17 +134,17 @@
                 android:orientation="horizontal"
                 android:paddingBottom="20sp">
                 <TextView
-                    android:text="DESIGNATION:"
+                    android:text="@string/designation_profile"
                     android:textSize="20sp"
                     android:textColor="#FFFF00"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20sp"
-                    android:paddingRight="50sp"
+                    android:paddingStart="20sp"
+                    android:paddingEnd="50sp"
                     android:id="@+id/textView9" />
 
                 <TextView
-                    android:text="AVENGER"
+                    android:text=""
                     android:textSize="20sp"
                     android:textColor="#FFFF00"
                     android:layout_width="wrap_content"
@@ -159,17 +159,17 @@
                 android:orientation="horizontal"
                 android:paddingBottom="20sp">
                 <TextView
-                    android:text="SITE:"
-                    android:textSize="20dp"
+                    android:text="@string/site_profile"
+                    android:textSize="20sp"
                     android:textColor="#FFFF00"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20sp"
-                    android:paddingRight="50sp"
+                    android:paddingStart="20sp"
+                    android:paddingEnd="50sp"
                     android:id="@+id/textView11" />
 
                 <TextView
-                    android:text="CALIFORNIA"
+                    android:text=""
                     android:textSize="20sp"
                     android:textColor="#FFFF00"
                     android:layout_width="match_parent"

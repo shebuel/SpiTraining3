@@ -23,10 +23,11 @@ import com.retreat.shebuel.spitraining.R;
 
 public class MainMenuFragment extends ListFragment {
     //ListFragmentItemClickListener listFragmentItemClickListener;
-    public String[] item = new String[]{"Policy", "Benefits", "Facility", "Employee Empowerment","FAQs"};
+    public String[] item;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        item = new String[]{getString(R.string.policy),getString(R.string.benefits),getString(R.string.facility),getString(R.string.ee),getString(R.string.faq)};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.listitem, item);
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
@@ -69,5 +70,6 @@ public class MainMenuFragment extends ListFragment {
         /** Making this transaction in effect */
         fragmentTransaction.commit();
     }
+
 
 }

@@ -18,10 +18,11 @@ import com.retreat.shebuel.spitraining.R;
  */
 
 public class FacilityMenuFragment extends ListFragment {
-    public String[] item = new String[]{"Staff Dining","Dorm","Lockers","Uniforms"};
+    public String[] item;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        item = new String[]{getString(R.string.staff_dining),getString(R.string.dorm),getString(R.string.lockers),getString(R.string.uniform)};
         ArrayAdapter<String > adapter = new ArrayAdapter<>(getActivity(), R.layout.listitem,item);
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);

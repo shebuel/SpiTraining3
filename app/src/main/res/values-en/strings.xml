@@ -1,14 +1,10 @@
 <resources>
-    <string name="app_name" translatable="false">SpiTraining</string>
     <string name="induction_text">This App explains the induction process...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="proceed_button">Proceed</string>
     <!-- Strings for the navigation bar-->
 
-    <string name="title_activity_nav_example" translatable="false">nav_example</string>
     <string name="profile_string">Profile</string>
     <string name="language_string">Language</string>
-    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
-    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
     <string name="change_password"><![CDATA[Change Password]]></string>
@@ -17,22 +13,22 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="wrong_password">Wrong Password!!!</string>
     <string name="name_profile">NAME:</string>
-    <string name="doj_profile">DOJ:</string>
     <string name="department_profile">DEPARTMENT:</string>
     <string name="designation_profile">DESIGNATION:</string>
     <string name="site_profile">SITE:</string>
     <string name="login">Login</string>
-    <string name="policy">Policy</string>
+    <string name="doj_profile">DOJ:</string>
     <string name="benefits">Benefits</string>
-    <string name="facility">Facility</string>
-    <string name="ee">Employee Empowerment</string>
-    <string name="faq">FAQ</string>
-    <string name="staff_dining">Staff Dining</string>
-    <string name="dorm">Dorm</string>
-    <string name="lockers">Lockers</string>
-    <string name="uniform">Uniforms</string>
-    <string name="staff_screening">Staff Screening</string>
     <string name="birthday">Birthday Celebration</string>
+    <string name="dorm">Dorm</string>
+    <string name="ee">Employee Empowerment</string>
+    <string name="lockers">Lockers</string>
+    <string name="policy">Policy</string>
+    <string name="staff_dining">Staff Dining</string>
+    <string name="staff_screening">Staff Screening</string>
     <string name="team_outing">Team Outing</string>
+    <string name="uniform">Uniforms</string>
+    <string name="facility">Facility</string>
+    <string name="faq">FAQ</string>
     <string name="logout">Logout</string>
 </resources>

@@ -1,0 +1,34 @@
+<resources>
+    <string name="induction_text">This App explains the induction process...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="proceed_button">ముందుకు</string>
+    <!-- Strings for the navigation bar-->
+
+    <string name="profile_string">ప్రొఫైల్</string>
+    <string name="language_string">భాష</string>
+
+    <string name="action_settings">సెట్టింగులను</string>
+    <string name="change_password">పాస్ వర్డ్ ను మార్చండి</string>
+    <string name="password_hint">పాస్వర్డ్</string>
+    <string name="employee_code_hint">ఉద్యోగి కోడ్</string>
+    <string name="forgot_password">పాస్వర్డ్ను మర్చిపోయారు?</string>
+    <string name="wrong_password">సరియినది కాని రహస్య పదము!!!</string>
+    <string name="department_profile">శాఖ :</string>
+    <string name="designation_profile">హోదా :</string>
+    <string name="name_profile">పేరు :</string>
+    <string name="site_profile">పని సైట్   :</string>
+    <string name="login">లాగ్ ఇన్</string>
+    <string name="doj_profile">తేదీ చేరారు :</string>
+    <string name="benefits">ప్రయోజనాలు</string>
+    <string name="birthday">పుట్టినరోజు వేడుక</string>
+    <string name="dorm">వసతి</string>
+    <string name="ee">ఉద్యోగి సాధికారత</string>
+    <string name="lockers">లాకర్స్</string>
+    <string name="policy">విధానం</string>
+    <string name="staff_dining">ఉద్యోగి భోజన</string>
+    <string name="staff_screening">ఉద్యోగి స్క్రీనింగ్</string>
+    <string name="team_outing">జట్టు ఔటింగ్</string>
+    <string name="uniform">యూనిఫారాలు</string>
+    <string name="facility">సౌకర్యం</string>
+    <string name="faq">ఎఫ్ ఎ క్యూ</string>
+    <string name="logout">లాగ్ అవుట్</string>
+</resources>

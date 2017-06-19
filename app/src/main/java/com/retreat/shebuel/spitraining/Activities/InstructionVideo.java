@@ -1,6 +1,8 @@
 package com.retreat.shebuel.spitraining.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -19,13 +21,23 @@ import com.longtailvideo.jwplayer.JWPlayerView;
 import com.longtailvideo.jwplayer.media.playlists.PlaylistItem;
 import com.retreat.shebuel.spitraining.R;
 
+import java.util.Locale;
+
 public class InstructionVideo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     JWPlayerView playerView;
     String option;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_example);
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+        editor= sharedpreferences.edit();
+        Locale locale = new Locale(sharedpreferences.getString("language","en"));
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         Intent intent = getIntent();
         option=intent.getStringExtra("option");
 
@@ -72,10 +84,16 @@ public class InstructionVideo extends AppCompatActivity implements NavigationVie
         if (id == R.id.profile) {
             Intent i = new Intent(getBaseContext(),Profile.class);
             startActivity(i);
+
         } else if (id == R.id.language) {
             Intent i = new Intent(getBaseContext(),LanguageOptions.class);
             startActivity(i);
+
         } else if (id == R.id.settings) {
+            editor.clear();
+            editor.commit();
+            Intent i = new Intent(getBaseContext(),Login.class);
+            startActivity(i);
 
         }
 
@@ -88,6 +106,14 @@ public class InstructionVideo extends AppCompatActivity implements NavigationVie
         // Let JW Player know that the app has returned from the background
         super.onResume();
         playerView.onResume();
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+        Locale locale = new Locale(sharedpreferences.getString("language","en"));
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        super.onResume();
+
     }
 
     @Override

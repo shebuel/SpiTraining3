@@ -1,6 +1,9 @@
 package com.retreat.shebuel.spitraining.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -28,12 +31,17 @@ import com.retreat.shebuel.spitraining.App;
 import com.retreat.shebuel.spitraining.Employee;
 import com.retreat.shebuel.spitraining.R;
 
+import java.util.Locale;
+
 public class Login extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     EditText id,password;
     Button login;
     TextView forgotpassword;
-    String ids,passwords,empCode,value,empLoginCode;
+    String passwords;
+    String value;
+    String empLoginCode;
     private DatabaseReference mDatabase;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +53,54 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
         forgotpassword.setPaintFlags(forgotpassword.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
         value="Not Found";
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
+        Locale locale = new Locale(sharedpreferences.getString("language","en"));
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        if(!sharedpreferences.getString("empCode","na").equals("na")){
+            empLoginCode=sharedpreferences.getString("empCode","na");
+            passwords=sharedpreferences.getString("password","na");
+            mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot usersDS : dataSnapshot.getChildren())
+                    {
+                        for(DataSnapshot headingsDS : usersDS.getChildren())
+                        {
+                            if(headingsDS.getKey().equals("EmployeeCode"))
+                            {
+                                if(headingsDS.getValue().toString().equals(empLoginCode))
+                                {
+                                    Employee employee = usersDS.getValue(Employee.class);
+                                    if(employee.getPassword().equals(passwords))
+                                    {
+                                        ((App)getApplication()).setGlobalVariable(empLoginCode);
+                                        Intent i = new Intent(getBaseContext(),VideoActivity.class);
+                                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(i);
+                                    }
+                                    else {
+                                        Toast.makeText(getBaseContext(), R.string.wrong_password,Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(Login.this, "Cannot reach Server", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
 
 
 
@@ -69,12 +125,15 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
                                         if(employee.getPassword().equals(passwords))
                                         {
                                             ((App)getApplication()).setGlobalVariable(empLoginCode);
+                                            editor.putString("empCode",empLoginCode);
+                                            editor.putString("password",passwords);
+                                            editor.commit();
                                             Intent i = new Intent(getBaseContext(),VideoActivity.class);
                                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                             startActivity(i);
                                         }
                                         else {
-                                            Toast.makeText(getBaseContext(),"Wrong Password!!!",Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getBaseContext(), R.string.wrong_password,Toast.LENGTH_SHORT).show();
                                         }
 
                                     }
@@ -86,7 +145,7 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
+                        Toast.makeText(Login.this, "Cannot reach server", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -122,13 +181,17 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
 
         if (id == R.id.profile) {
             Intent i = new Intent(getBaseContext(),Profile.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+
         } else if (id == R.id.language) {
             Intent i = new Intent(getBaseContext(),LanguageOptions.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+
         } else if (id == R.id.settings) {
+            editor.clear();
+            editor.commit();
+            Intent i = new Intent(getBaseContext(),Login.class);
+            startActivity(i);
 
         }
 
@@ -141,5 +204,16 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
     {
         super.onDestroy();
         
+    }
+    @Override
+    public void onResume()
+    {
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+        Locale locale = new Locale(sharedpreferences.getString("language","en"));
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        super.onResume();
     }
 }

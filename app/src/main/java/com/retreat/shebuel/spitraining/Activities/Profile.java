@@ -1,6 +1,9 @@
 package com.retreat.shebuel.spitraining.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -23,9 +26,12 @@ import com.retreat.shebuel.spitraining.App;
 import com.retreat.shebuel.spitraining.Employee;
 import com.retreat.shebuel.spitraining.R;
 
+import java.util.Locale;
+
 public class Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     TextView nameT,dojT,deptT,desigT,siteT,changepassT;
     DatabaseReference mDatabase;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +43,13 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         siteT=(TextView)findViewById(R.id.siteText);
         changepassT=(TextView)findViewById(R.id.changePassword);
         changepassT.setPaintFlags(changepassT.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+
+        Locale locale = new Locale(sharedpreferences.getString("language","en"));
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         //Creating a custom toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -98,11 +111,17 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         if (id == R.id.profile) {
             Intent i = new Intent(getBaseContext(),Profile.class);
             startActivity(i);
+            finish();
         } else if (id == R.id.language) {
             Intent i = new Intent(getBaseContext(),LanguageOptions.class);
             startActivity(i);
+            finish();
         } else if (id == R.id.settings) {
-
+            editor.clear();
+            editor.commit();
+            Intent i = new Intent(getBaseContext(),Login.class);
+            startActivity(i);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -27,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.ChangePassword" />
         <activity android:name=".Activities.Sample" />
         <activity android:name=".Activities.ChangePassword2"></activity>
     </application>

@@ -1,6 +1,8 @@
 package com.retreat.shebuel.spitraining.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -22,16 +24,21 @@ import com.retreat.shebuel.spitraining.Activities.MainOptionsMenu;
 import com.retreat.shebuel.spitraining.Activities.Profile;
 import com.retreat.shebuel.spitraining.R;
 
+import java.util.Locale;
+
 public class VideoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
     JWPlayerView playerView;
     Button proceed;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_example);
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+        editor= sharedpreferences.edit();
         playerView = (JWPlayerView) findViewById(R.id.playerView);
         proceed = (Button) findViewById(R.id.video_button);
-        proceed.setText("Proceed");
+        proceed.setText(R.string.proceed_button);
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +75,7 @@ public class VideoActivity extends AppCompatActivity implements NavigationView.O
         // Let JW Player know that the app has returned from the background
         super.onResume();
         playerView.onResume();
+
     }
 
     @Override
@@ -111,10 +119,16 @@ public class VideoActivity extends AppCompatActivity implements NavigationView.O
         if (id == R.id.profile) {
             Intent i = new Intent(getBaseContext(),Profile.class);
             startActivity(i);
+
         } else if (id == R.id.language) {
             Intent i = new Intent(getBaseContext(),LanguageOptions.class);
             startActivity(i);
+
         } else if (id == R.id.settings) {
+            editor.clear();
+            editor.commit();
+            Intent i = new Intent(getBaseContext(),Login.class);
+            startActivity(i);
 
         }
 
@@ -122,4 +136,5 @@ public class VideoActivity extends AppCompatActivity implements NavigationView.O
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

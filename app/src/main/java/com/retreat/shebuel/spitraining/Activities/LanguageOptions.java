@@ -1,6 +1,9 @@
 package com.retreat.shebuel.spitraining.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,12 +16,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.retreat.shebuel.spitraining.CustomList;
 import com.retreat.shebuel.spitraining.R;
 
+import java.util.Locale;
+
 public class LanguageOptions extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     ListView l;
+    SharedPreferences.Editor editor;
     String web[]={"English","Tamil","Telegu","Hindi"};
     Integer[] imageId={
             R.drawable.english,
@@ -30,13 +37,38 @@ public class LanguageOptions extends AppCompatActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_options);
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
         l=(ListView)findViewById(R.id.list_item);
         CustomList adapter= new CustomList(LanguageOptions.this,web,imageId);
         l.setAdapter(adapter);
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position==0)
+                {
+                    editor.putString("language","en");
+                    editor.commit();
+                    Toast.makeText(LanguageOptions.this, "Language Changed to English", Toast.LENGTH_SHORT).show();
 
+                }
+                else if(position==1)
+                {
+                    editor.putString("language","ta");
+                    editor.commit();
+                    Toast.makeText(LanguageOptions.this, "Language Changed to Tamil", Toast.LENGTH_SHORT).show();
+                }
+                else if(position==2){
+                    editor.putString("language","te");
+                    editor.commit();
+                    Toast.makeText(LanguageOptions.this, "Language Changed to Telugu", Toast.LENGTH_SHORT).show();
+                }
+                else if(position==3){
+                    editor.putString("language","hi");
+                    editor.commit();
+                    Toast.makeText(LanguageOptions.this, "Language Changed to Hindi", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
         //Creating a custom toolbar
@@ -60,10 +92,16 @@ public class LanguageOptions extends AppCompatActivity implements NavigationView
         if (id == R.id.profile) {
             Intent i = new Intent(getBaseContext(),Profile.class);
             startActivity(i);
+
         } else if (id == R.id.language) {
             Intent i = new Intent(getBaseContext(),LanguageOptions.class);
             startActivity(i);
+
         } else if (id == R.id.settings) {
+            editor.clear();
+            editor.commit();
+            Intent i = new Intent(getBaseContext(),Login.class);
+            startActivity(i);
 
         }
 

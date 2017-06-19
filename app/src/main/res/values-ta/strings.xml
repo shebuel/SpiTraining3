@@ -1,0 +1,34 @@
+<resources>
+    <string name="induction_text">This App explains the induction process...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="proceed_button">தொடர</string>
+    <!-- Strings for the navigation bar-->
+
+    <string name="profile_string">விவரம்</string>
+    <string name="language_string">மொழி</string>
+
+    <string name="action_settings">அமைப்புகள்</string>
+    <string name="change_password">கடவுச்சொல்லை மாற்று</string>
+    <string name="password_hint">கடவுச்சொல்</string>
+    <string name="employee_code_hint">ஊழியர் குறியீடு</string>
+    <string name="forgot_password">கடவுச்சொல்லை மறந்துவிட்டேன்?</string>
+    <string name="wrong_password">தவறான கடவுச்சொல்!!!</string>
+    <string name="department_profile">துறை :</string>
+    <string name="designation_profile">பதவி :</string>
+    <string name="name_profile">பெயர் :</string>
+    <string name="site_profile">வேலை தளம் :</string>
+    <string name="login">உள் நுழை</string>
+    <string name="doj_profile">இணைந்த தேதி :</string>
+    <string name="benefits">நன்மைகள்</string>
+    <string name="birthday">பிறந்தநாள் விழா</string>
+    <string name="dorm">தங்குமிடம்</string>
+    <string name="ee">பணியாளர் அதிகாரமளித்தல்</string>
+    <string name="lockers">லாக்கர்ஸ்</string>
+    <string name="policy">கொள்கை</string>
+    <string name="staff_dining">ஊழியர் சாப்பாடு</string>
+    <string name="staff_screening">ஊழியர்கள் திரையிடல்</string>
+    <string name="team_outing">குழு வெளியேறுதல்</string>
+    <string name="uniform">சீருடைகள்</string>
+    <string name="facility">வசதி</string>
+    <string name="faq">அடிக்கடி கேட்கப்படும் கேள்விகள்</string>
+    <string name="logout">வெளியேறு</string>
+</resources>

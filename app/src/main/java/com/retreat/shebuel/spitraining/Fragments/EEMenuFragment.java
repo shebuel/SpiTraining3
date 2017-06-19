@@ -18,7 +18,7 @@ import com.retreat.shebuel.spitraining.R;
  */
 
 public class EEMenuFragment extends ListFragment {
-    String[] item = new String[]{"Staff Screening","Birthday Celebration","Team Outing"};
+    String[] item = new String[]{getString(R.string.staff_screening),getString(R.string.birthday),getString(R.string.team_outing)};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.listitem,item);

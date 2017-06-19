@@ -1,0 +1,33 @@
+<resources>
+    <string name="induction_text">This App explains the induction process...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="proceed_button">बढ़ना</string>
+    <!-- Strings for the navigation bar-->
+
+    <string name="language_string">భాష</string>
+
+    <string name="action_settings">सेटिंग्स</string>
+    <string name="change_password">पासवर्ड बदलें</string>
+    <string name="password_hint">पासवर्ड</string>
+    <string name="employee_code_hint">कर्मचारी कोड</string>
+    <string name="forgot_password">पासवर्ड भूल गए?</string>
+    <string name="wrong_password">गलत पासवर्ड !!!</string>
+    <string name="profile_string">प्रोफाइल</string>
+    <string name="site_profile">कार्य स्थल :</string>
+    <string name="department_profile">विभाग :</string>
+    <string name="designation_profile">पद :</string>
+    <string name="name_profile">नाम :</string>
+    <string name="login">लॉग इन करें</string>
+    <string name="doj_profile">तारीख में शामिल हो गए :</string>
+    <string name="benefits">लाभ</string>
+    <string name="birthday">जन्मदिन का जश्न</string>
+    <string name="dorm">छात्रावास</string>
+    <string name="ee">कर्मचारी सशक्तिकरण</string>
+    <string name="lockers">लाकर्स</string>
+    <string name="policy">नीति</string>
+    <string name="staff_dining">कर्मचारी भोजन</string>
+    <string name="staff_screening">कर्मचारी स्क्रीनिंग</string>
+    <string name="team_outing">टीम आउटिंग</string>
+    <string name="uniform">वर्दी</string>
+    <string name="facility">सुविधा</string>
+    <string name="faq">सामान्य प्रश्न</string>
+</resources>
