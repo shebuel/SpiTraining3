@@ -10,6 +10,16 @@ import android.app.Application;
 public class App extends Application {
     private String empGlobalCode;
 
+    public boolean isLanguageChanged() {
+        return languageChanged;
+    }
+
+    public void setLanguageChanged(boolean languageChanged) {
+        this.languageChanged = languageChanged;
+    }
+
+    private boolean languageChanged;
+
     public String getGlobalVariable() {
         return empGlobalCode;
     }

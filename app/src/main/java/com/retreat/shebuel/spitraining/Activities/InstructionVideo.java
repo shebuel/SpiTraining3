@@ -19,6 +19,7 @@ import android.widget.Button;
 
 import com.longtailvideo.jwplayer.JWPlayerView;
 import com.longtailvideo.jwplayer.media.playlists.PlaylistItem;
+import com.retreat.shebuel.spitraining.App;
 import com.retreat.shebuel.spitraining.R;
 
 import java.util.Locale;
@@ -106,13 +107,11 @@ public class InstructionVideo extends AppCompatActivity implements NavigationVie
         // Let JW Player know that the app has returned from the background
         super.onResume();
         playerView.onResume();
-        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
-        Locale locale = new Locale(sharedpreferences.getString("language","en"));
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-        super.onResume();
+        if(((App)getApplication()).isLanguageChanged())
+        {
+            ((App)getApplication()).setLanguageChanged(false);
+            super.recreate();
+        }
 
     }
 

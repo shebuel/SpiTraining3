@@ -128,4 +128,15 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        if(((App)getApplication()).isLanguageChanged())
+        {
+            ((App)getApplication()).setLanguageChanged(false);
+            super.recreate();
+        }
+
+    }
 }

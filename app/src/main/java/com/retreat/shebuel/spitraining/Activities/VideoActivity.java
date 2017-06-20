@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,12 +17,14 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.longtailvideo.jwplayer.JWPlayerView;
 import com.longtailvideo.jwplayer.media.playlists.PlaylistItem;
 import com.retreat.shebuel.spitraining.Activities.LanguageOptions;
 import com.retreat.shebuel.spitraining.Activities.MainOptionsMenu;
 import com.retreat.shebuel.spitraining.Activities.Profile;
+import com.retreat.shebuel.spitraining.App;
 import com.retreat.shebuel.spitraining.R;
 
 import java.util.Locale;
@@ -30,11 +33,18 @@ public class VideoActivity extends AppCompatActivity implements NavigationView.O
     JWPlayerView playerView;
     Button proceed;
     SharedPreferences.Editor editor;
+    boolean doubleBackToExitPressedOnce = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_example);
         SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+        Locale locale = new Locale(sharedpreferences.getString("language","en"));
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
         editor= sharedpreferences.edit();
         playerView = (JWPlayerView) findViewById(R.id.playerView);
         proceed = (Button) findViewById(R.id.video_button);
@@ -75,6 +85,11 @@ public class VideoActivity extends AppCompatActivity implements NavigationView.O
         // Let JW Player know that the app has returned from the background
         super.onResume();
         playerView.onResume();
+        if(((App)getApplication()).isLanguageChanged())
+        {
+            ((App)getApplication()).setLanguageChanged(false);
+            super.recreate();
+        }
 
     }
 
@@ -135,6 +150,24 @@ public class VideoActivity extends AppCompatActivity implements NavigationView.O
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 
 }

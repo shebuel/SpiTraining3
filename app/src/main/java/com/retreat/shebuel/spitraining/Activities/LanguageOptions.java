@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.retreat.shebuel.spitraining.App;
 import com.retreat.shebuel.spitraining.CustomList;
 import com.retreat.shebuel.spitraining.R;
 
@@ -50,6 +51,8 @@ public class LanguageOptions extends AppCompatActivity implements NavigationView
                     editor.putString("language","en");
                     editor.commit();
                     Toast.makeText(LanguageOptions.this, "Language Changed to English", Toast.LENGTH_SHORT).show();
+                    ((App)getApplication()).setLanguageChanged(true);
+                    finish();
 
                 }
                 else if(position==1)
@@ -57,16 +60,22 @@ public class LanguageOptions extends AppCompatActivity implements NavigationView
                     editor.putString("language","ta");
                     editor.commit();
                     Toast.makeText(LanguageOptions.this, "Language Changed to Tamil", Toast.LENGTH_SHORT).show();
+                    ((App)getApplication()).setLanguageChanged(true);
+                    finish();
                 }
                 else if(position==2){
                     editor.putString("language","te");
                     editor.commit();
                     Toast.makeText(LanguageOptions.this, "Language Changed to Telugu", Toast.LENGTH_SHORT).show();
+                    ((App)getApplication()).setLanguageChanged(true);
+                    finish();
                 }
                 else if(position==3){
                     editor.putString("language","hi");
                     editor.commit();
                     Toast.makeText(LanguageOptions.this, "Language Changed to Hindi", Toast.LENGTH_SHORT).show();
+                    ((App)getApplication()).setLanguageChanged(true);
+                    finish();
 
                 }
             }

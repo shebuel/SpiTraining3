@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
+import com.retreat.shebuel.spitraining.App;
 import com.retreat.shebuel.spitraining.Fragments.MainMenuFragment;
 import com.retreat.shebuel.spitraining.Fragments.SearchFragment;
 import com.retreat.shebuel.spitraining.R;
@@ -195,11 +196,10 @@ public class MainOptionsMenu extends AppCompatActivity implements NavigationView
     {
 
         super.onResume();
-        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
-        locale = new Locale(sharedpreferences.getString("language","en"));
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        if(((App)getApplication()).isLanguageChanged())
+        {
+            ((App)getApplication()).setLanguageChanged(false);
+            super.recreate();
+        }
     }
 }

@@ -30,4 +30,5 @@
     <string name="uniform">वर्दी</string>
     <string name="facility">सुविधा</string>
     <string name="faq">सामान्य प्रश्न</string>
+    <string name="logout">लोग आउट</string>
 </resources>

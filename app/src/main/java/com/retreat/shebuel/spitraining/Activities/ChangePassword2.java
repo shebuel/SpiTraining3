@@ -141,12 +141,11 @@ public class ChangePassword2 extends AppCompatActivity implements NavigationView
     @Override
     public void onResume()
     {
-        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
-        Locale locale = new Locale(sharedpreferences.getString("language","en"));
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         super.onResume();
+        if(((App)getApplication()).isLanguageChanged())
+        {
+            ((App)getApplication()).setLanguageChanged(false);
+            super.recreate();
+        }
     }
 }

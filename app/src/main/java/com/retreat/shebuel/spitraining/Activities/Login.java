@@ -80,6 +80,7 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
                                         ((App)getApplication()).setGlobalVariable(empLoginCode);
                                         Intent i = new Intent(getBaseContext(),VideoActivity.class);
                                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        finish();
                                         startActivity(i);
                                     }
                                     else {
@@ -130,6 +131,7 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
                                             editor.commit();
                                             Intent i = new Intent(getBaseContext(),VideoActivity.class);
                                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                            finish();
                                             startActivity(i);
                                         }
                                         else {
@@ -208,12 +210,11 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
     @Override
     public void onResume()
     {
-        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
-        Locale locale = new Locale(sharedpreferences.getString("language","en"));
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         super.onResume();
+        if(((App)getApplication()).isLanguageChanged())
+        {
+            ((App)getApplication()).setLanguageChanged(false);
+            super.recreate();
+        }
     }
 }
