@@ -88,7 +88,10 @@ public class VideoActivity extends AppCompatActivity implements NavigationView.O
         if(((App)getApplication()).isLanguageChanged())
         {
             ((App)getApplication()).setLanguageChanged(false);
-            super.recreate();
+            Intent i = new Intent(getBaseContext(),VideoActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            finish();
         }
 
     }

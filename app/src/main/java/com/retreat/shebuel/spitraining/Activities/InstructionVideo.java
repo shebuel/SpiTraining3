@@ -22,6 +22,8 @@ import com.longtailvideo.jwplayer.media.playlists.PlaylistItem;
 import com.retreat.shebuel.spitraining.App;
 import com.retreat.shebuel.spitraining.R;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class InstructionVideo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -48,23 +50,93 @@ public class InstructionVideo extends AppCompatActivity implements NavigationVie
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO:Fill
+                Intent i = new Intent(getBaseContext(),MainOptionsMenu.class);
+                finish();
+                startActivity(i);
             }
         });
+        if(option.equals("policy"))
+        {
+            playerView = (JWPlayerView) findViewById(R.id.playerView);
+            playerView.setLicenseKey(getBaseContext(),"cyuQSoIpd0R5rrqGPrZNhcfWoT/zSJ5ZhLKIlQ==");
+            playerView.setMinimumHeight(720);
+            PlaylistItem item = new PlaylistItem.Builder()
+                    .file("http://content.jwplatform.com/videos/oZFRM1CW-ktVFP6H3.mp4")
+                    .image("http://content.jwplatform.com/thumbs/oZFRM1CW-720.jpg")
+                    .description("Policies")
+                    .title("Policy")
+                    .build();
 
-        //Define the Player :)
-        playerView = (JWPlayerView) findViewById(R.id.playerView);
-        playerView.setLicenseKey(getBaseContext(),"cyuQSoIpd0R5rrqGPrZNhcfWoT/zSJ5ZhLKIlQ==");
-        playerView.setMinimumHeight(720);
-        PlaylistItem item = new PlaylistItem.Builder()
-                .file("http://content.jwplatform.com/videos/AUNvkt32-bsVd1pnQ.mp4")
-                .image("http://content.jwplatform.com/thumbs/AUNvkt32-1280.jpg")
-                .description("Some really great content")
-                .title("Induction")
-                .build();
+            // Load the PlaylistItem into the player
+            playerView.load(item);
+        }
+        else if(option.equals("Values"))
+        {
+            playerView = (JWPlayerView) findViewById(R.id.playerView);
+            playerView.setLicenseKey(getBaseContext(),"cyuQSoIpd0R5rrqGPrZNhcfWoT/zSJ5ZhLKIlQ==");
+            playerView.setMinimumHeight(720);
+            // Create a list to contain the PlaylistItems
+            List<PlaylistItem> playlist = new ArrayList<>();
 
-// Load the PlaylistItem into the player
-        playerView.load(item);
+// Add a PlaylistItem pointing to the first piece of content
+            playlist.add(new PlaylistItem("http://content.jwplatform.com/videos/JsgxU6cH-Z0OyQBih.mp4"));
+
+// Add another PlaylistItem pointing to the second piece of content
+// This time using the Builder
+            playlist.add(new PlaylistItem.Builder()
+                    .file("http://content.jwplatform.com/videos/P2g1CBKG-WrfPGdE7.mp4")
+                    .image("http://content.jwplatform.com/thumbs/P2g1CBKG-480.jpg")
+                    .description("A good TV show")
+                    .build());
+
+// Add a final piece of content
+            playlist.add(new PlaylistItem("http://content.jwplatform.com/videos/KeLLPOK3-WrfPGdE7.mp4"));
+            playerView.load(playlist);
+        }
+        else if(option.equals("facility")){
+            playerView = (JWPlayerView) findViewById(R.id.playerView);
+            playerView.setLicenseKey(getBaseContext(),"cyuQSoIpd0R5rrqGPrZNhcfWoT/zSJ5ZhLKIlQ==");
+            playerView.setMinimumHeight(720);
+            PlaylistItem item = new PlaylistItem.Builder()
+                    .file("http://content.jwplatform.com/videos/oZFRM1CW-ktVFP6H3.mp4")
+                    .image("http://content.jwplatform.com/thumbs/oZFRM1CW-720.jpg")
+                    .description("Policies")
+                    .title("Policy")
+                    .build();
+
+            // Load the PlaylistItem into the player
+            playerView.load(item);
+        }
+        else if(option.equals("ee")){
+            playerView = (JWPlayerView) findViewById(R.id.playerView);
+            playerView.setLicenseKey(getBaseContext(),"cyuQSoIpd0R5rrqGPrZNhcfWoT/zSJ5ZhLKIlQ==");
+            playerView.setMinimumHeight(720);
+            PlaylistItem item = new PlaylistItem.Builder()
+                    .file("http://content.jwplatform.com/videos/oZFRM1CW-ktVFP6H3.mp4")
+                    .image("http://content.jwplatform.com/thumbs/oZFRM1CW-720.jpg")
+                    .description("Policies")
+                    .title("Policy")
+                    .build();
+
+            // Load the PlaylistItem into the player
+            playerView.load(item);
+        }
+        else if(option.equals("benefits"))
+        {
+            playerView = (JWPlayerView) findViewById(R.id.playerView);
+            playerView.setLicenseKey(getBaseContext(),"cyuQSoIpd0R5rrqGPrZNhcfWoT/zSJ5ZhLKIlQ==");
+            playerView.setMinimumHeight(720);
+            PlaylistItem item = new PlaylistItem.Builder()
+                    .file("http://content.jwplatform.com/videos/oZFRM1CW-ktVFP6H3.mp4")
+                    .image("http://content.jwplatform.com/thumbs/oZFRM1CW-720.jpg")
+                    .description("Policies")
+                    .title("Policy")
+                    .build();
+
+            // Load the PlaylistItem into the player
+            playerView.load(item);
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

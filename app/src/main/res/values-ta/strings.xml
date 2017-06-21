@@ -31,4 +31,10 @@
     <string name="facility">வசதி</string>
     <string name="faq">அடிக்கடி கேட்கப்படும் கேள்விகள்</string>
     <string name="logout">வெளியேறு</string>
+    <string name="about_spi">எங்களை பற்றி</string>
+    <string name="values">மதிப்புகள்</string>
+    <string name="current_password">தற்போதைய கடவுச்சொல்</string>
+    <string name="new_password">புதிய கடவுச்சொல்</string>
+    <string name="proceed">தொடர</string>
+    <string name="re_enter_new_password">புதிய கடவுச்சொல்லை உள்ளிடுக</string>
 </resources>

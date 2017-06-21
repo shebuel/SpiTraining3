@@ -13,14 +13,14 @@ import com.retreat.shebuel.spitraining.Activities.InstructionVideo;
 import com.retreat.shebuel.spitraining.R;
 
 /**
- * Created by Shebuel on 09-06-2017 at 14:26.
- * Final Edits made on com.retreat.shebuel.spitraining
+ * Created by Shebuel on 21-06-2017 at 13:36.
+ * Final Edits made on com.retreat.shebuel.spitraining.Fragments
  */
-public class EEMenuFragment extends ListFragment {
+public class AboutFragment extends ListFragment {
     String[] item ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        item = new String[]{getString(R.string.staff_screening),getString(R.string.birthday),getString(R.string.team_outing)};
+        item = new String[]{getString(R.string.values)};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.listitem,item);
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
@@ -28,7 +28,7 @@ public class EEMenuFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Intent i = new Intent(getActivity(),InstructionVideo.class);
-        i.putExtra("option",item[position]);
+        i.putExtra("option","Values");
         startActivity(i);
     }
 }

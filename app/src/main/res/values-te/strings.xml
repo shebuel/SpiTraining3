@@ -31,4 +31,10 @@
     <string name="facility">సౌకర్యం</string>
     <string name="faq">ఎఫ్ ఎ క్యూ</string>
     <string name="logout">లాగ్ అవుట్</string>
+    <string name="about_spi">మా గురించి</string>
+    <string name="values">విలువలు</string>
+    <string name="current_password">ప్రస్తుత పాస్వర్డ్</string>
+    <string name="new_password">కొత్త పాస్వర్డ్</string>
+    <string name="proceed">ముందుకు</string>
+    <string name="re_enter_new_password">కొత్త పాస్ వర్డ్ ను ఎంటర్ చెయ్యండి</string>
 </resources>

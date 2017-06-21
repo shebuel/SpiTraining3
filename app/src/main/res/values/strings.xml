@@ -35,4 +35,10 @@
     <string name="birthday">Birthday Celebration</string>
     <string name="team_outing">Team Outing</string>
     <string name="logout">Logout</string>
+    <string name="about_spi">About SPI</string>
+    <string name="values">Values</string>
+    <string name="new_password">New Password</string>
+    <string name="re_enter_new_password">Re-enter New Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="proceed">PROCEED</string>
 </resources>

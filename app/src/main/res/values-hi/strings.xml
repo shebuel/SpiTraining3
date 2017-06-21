@@ -31,4 +31,10 @@
     <string name="facility">सुविधा</string>
     <string name="faq">सामान्य प्रश्न</string>
     <string name="logout">लोग आउट</string>
+    <string name="about_spi">हमारे बारे में</string>
+    <string name="values">मान</string>
+    <string name="current_password">वर्तमान पासवर्ड</string>
+    <string name="new_password">नया पासवर्ड</string>
+    <string name="proceed">बढ़ना</string>
+    <string name="re_enter_new_password">नया पासवर्ड पुनः दर्ज करें</string>
 </resources>

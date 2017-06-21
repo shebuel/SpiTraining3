@@ -44,6 +44,7 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
     SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         id=(EditText)findViewById(R.id.editText);

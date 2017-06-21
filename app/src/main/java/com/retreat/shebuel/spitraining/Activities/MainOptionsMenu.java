@@ -39,7 +39,7 @@ public class MainOptionsMenu extends AppCompatActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_options_menu);
-        values= new String[] { getString(R.string.policy),getString(R.string.benefits),getString(R.string.facility),getString(R.string.ee),getString(R.string.faq),getString(R.string.staff_dining),getString(R.string.dorm),getString(R.string.lockers),getString(R.string.uniform),getString(R.string.staff_screening),getString(R.string.birthday),getString(R.string.team_outing) };
+        values= new String[] { getString(R.string.about_spi),getString(R.string.policy),getString(R.string.benefits),getString(R.string.facility),getString(R.string.ee),getString(R.string.faq),getString(R.string.staff_dining),getString(R.string.dorm),getString(R.string.lockers),getString(R.string.uniform),getString(R.string.staff_screening),getString(R.string.birthday),getString(R.string.team_outing) };
         SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
         editor= sharedpreferences.edit();
         Mylocale = new Locale(sharedpreferences.getString("language","en"));
@@ -176,7 +176,14 @@ public class MainOptionsMenu extends AppCompatActivity implements NavigationView
     public void onBackPressed() {
         if (getFragmentManager().getBackStackEntryCount() > 0) {
             getFragmentManager().popBackStack();
-        } else if (searchView.isSearchOpen()) {
+        }
+        /*else if(getFragmentManager().getBackStackEntryCount()==0)
+        {
+            Intent i = new Intent(getBaseContext(),VideoActivity.class);
+            finish();
+            startActivity(i);
+
+        }*/else if (searchView.isSearchOpen()) {
             searchView.closeSearch();
         } else {
             super.onBackPressed();
